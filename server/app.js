@@ -3,9 +3,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var bodyParser = require('body-parser');
-var sequelize = require('./db.js')
 
-sequelize.sync();
 
 // sequelize.sync({ force: true}) THIS WILL DROP THE TABLES
 
@@ -13,7 +11,6 @@ sequelize.sync();
 app.use(bodyParser.json());
 // saying to require the addition of headers from this file to have additional information sent along 
 
-app.use(require('./middleware/headers'))
 app.use('/', require('./routes/tweets'));
 
 // sending the string "hello world" to the api/test location for the client to pull through a header

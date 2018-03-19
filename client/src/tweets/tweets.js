@@ -4,6 +4,7 @@ import { TablePagination } from 'react-pagination-table';
 // import Splash from './home/Splash';
 
 class Tweets extends Component {
+
   constructor(props){
     super(props)
     this.state={
@@ -30,24 +31,20 @@ class Tweets extends Component {
 
     getTweets=(e)=>{
       console.log("The tweets are here")
+      fetch("http://localhost:4000/",{
+        method:'POST'
+      }).then(
+        (response)=>response.json()
+      ).then((data)=>{
         this.setState({
-          // tweets: data,
+          tweets: data,
           visible: true
         })
-    }
+      }) 
+      e.preventDefault();
+    };
 
-    //   fetch("http://localhost:4000/",{
-    //     method:'POST'
-    //   }).then(
-    //     (response)=>response.json()
-    //   ).then((data)=>{
-    //     this.setState({
-    //       tweets: data,
-    //       visible: true
-    //     })
-    //   }) 
-    //   e.preventDefaulte
-    // }
+
 
   render() {
     return (
@@ -73,8 +70,6 @@ class Tweets extends Component {
             </div>
         </div>
 
-    );
+    )};
   }
-}
-
 export default Tweets;
