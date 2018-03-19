@@ -17,7 +17,7 @@ class Tweets extends Component {
     ascending=() =>{
       this.setState({ 
         tweets: this.state.tweets.sort(),
-        ascdes: true
+        ascdes: false
       })
     }
 
@@ -25,7 +25,7 @@ class Tweets extends Component {
       this.setState({ tweets: this.state.tweets.sort()})
       this.setState({ 
         tweets: this.state.tweets.reverse(),
-        ascdes: false
+        ascdes: true
       })
     }
 
@@ -53,7 +53,7 @@ class Tweets extends Component {
             <h1 className ="text-center">Tweets for #gooddog</h1><br/><br/>
           </div>
           {this.state.visible?
-          <TablePagination
+          <TablePagination className="text-center"
             title="Tweets"
             data = {this.state.tweets}
             columns="tweet"
@@ -65,8 +65,8 @@ class Tweets extends Component {
             <div>
               {!this.state.visible? <button className="text-center" onClick={this.getTweets} type="submit">Get Tweets</button>: null}
             </div>
-            <div>
-              Change display Mode:{this.state.visible ? this.state.ascdes ? <button onClick={this.descending} >Ascending</button>: <button onClick={this.ascending} >Decending</button> : null}
+            <div className="text-center"><br/>
+                Change display Mode:{this.state.visible ? this.state.ascdes ? <button onClick={this.ascending}>Ascending</button>: <button onClick={this.descending}>Decending</button> : <p>click <b>Get Tweets</b> to sort</p>}
             </div>
         </div>
 

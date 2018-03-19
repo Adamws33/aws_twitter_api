@@ -39,3 +39,11 @@
   border: 2px solid black;
   margin: 10px; 
 }
+.pagination-status {
+  list-style: none !important;
+  display: inline-flex;
+  margin: 0 auto;
+}
+a {
+  padding: 30px;
+}
