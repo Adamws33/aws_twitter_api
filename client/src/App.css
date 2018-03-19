@@ -26,3 +26,16 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.sidebar-route {
+  flex: 1;
+  padding: '00px';
+  width :70%;
+  height: 100%;
+  border: 2px solid black
+}
+.sidebar {
+  display: flex;
+  background-color: #0084b4;
+  border: 2px solid black;
+  margin: 10px; 
+}
