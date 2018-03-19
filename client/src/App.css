@@ -31,7 +31,6 @@
   padding: '00px';
   width :70%;
   height: 100%;
-  border: 2px solid black
 }
 .sidebar {
   display: flex;
@@ -46,4 +45,21 @@
 }
 a {
   padding: 30px;
+  cursor: pointer;
+}
+
+li.active{
+  border:3px solid black;
+  cursor: default
+}
+li.active a{
+  cursor: default
+}
+.getTweets{
+  margin:0 auto;
+  display:block;
+  border-radius: 5px;
+}
+.tweetButton{
+  width: 100%
 }

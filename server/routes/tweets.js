@@ -20,7 +20,7 @@ router.post("/", function(req,res){
  
   tweets= []
 
-  client.get('search/tweets', {count: 100, q: '#gooddog', lang: 'en',exclude: "retweets"})
+  client.get('search/tweets', {count: 100, q: '#gooddog', lang: 'en', exclude: "retweets"})
 .then(function (tweet) {
     var length = tweet.statuses.length
 
