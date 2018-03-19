@@ -10,23 +10,27 @@ class Tweets extends Component {
     this.state={
       tweets: [],
       visible: false,
-      ascdes: true
+      asc: true
     }
   }
 
     ascending=() =>{
       this.setState({ 
-        tweets: this.state.tweets.sort(),
-        ascdes: false
-      })
+        tweets: this.state.tweets.sort((a,b)=>{
+          var textA = a.tweet.toUpperCase();
+          var textB = b.tweet.toUpperCase();
+          return ( textA < textB ) ? -1 : ( textA > textB ) ? 1 : 0;
+        }),
+        asc: false
+      }, () => console.log("ascending", this.state.tweets))
     }
 
     descending=() =>{
-      this.setState({ tweets: this.state.tweets.sort()})
+      // this.setState({ tweets: this.state.tweets.sort()})
       this.setState({ 
         tweets: this.state.tweets.reverse(),
-        ascdes: true
-      })
+        asc: true
+      }, () => console.log("descending", this.state.tweets))
     }
 
     getTweets=(e)=>{
@@ -50,23 +54,25 @@ class Tweets extends Component {
     return (
         <div className="tweets">
           <div>
-            <h1 className ="text-center">Tweets for #gooddog</h1><br/><br/>
+            { this.state.visible ? <h1 className="text-center"> Tweets for #goodDog </h1> : null }
+            <br/><br/>
           </div>
-          {this.state.visible?
+          { this.state.visible?
           <TablePagination className="text-center"
-            title="Tweets"
-            data = {this.state.tweets}
+            title=""
+            data = { this.state.tweets }
             columns="tweet"
-            headers={[<div className="text-center">"#GoodDog tweets"</div>]}
-            perPageItemCount={10}
-            totalCount={100}
+            headers={ ["#goodDog tweets"] }
+            arrayOption= { [] }
+            perPageItemCount={ 10 }
+            totalCount={ 100 }
           />: null
           }
             <div>
-              {!this.state.visible? <button className="text-center" onClick={this.getTweets} type="submit">Get Tweets</button>: null}
+              { !this.state.visible ? <button className="text-center" onClick={ this.getTweets } type="submit"> Get Tweets </button> : null }
             </div>
             <div className="text-center"><br/>
-                Change display Mode:{this.state.visible ? this.state.ascdes ? <button onClick={this.ascending}>Ascending</button>: <button onClick={this.descending}>Decending</button> : <p>click <b>Get Tweets</b> to sort</p>}
+                <h4>Change display Mode:</h4> { this.state.visible ? this.state.asc ? <button onClick={ this.ascending}> Ascending </button> : <button onClick={ this.descending }> Descending </button> :<h4> <p> click <b> Get Tweets </b> to sort </p> </h4> }
             </div>
         </div>
 

@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
-// import Splash from './home/Splash';
-import {
-  Route,
-  Link
-} from 'react-router-dom';
-import { routes } from './_routes';
 import Tweets from "../tweets/tweets"
 import "./sidebar.css"
-// import {
-//     Navbar,
-//     NavbarToggler,
-//     NavbarBrand,
-//     Nav,
-//     NavItem,
-//     NavLink,
-//     Button
-// } from 'reactstrap';
 
 class SideBar extends Component {
 
@@ -37,15 +22,6 @@ class SideBar extends Component {
             <Tweets />
           </div>
         </div>
-        // className="sidebar-route">
-        // {routes.map((route, index) => (
-        // <Route
-        // key={index}
-        // path={route.path}
-        // exact={route.exact}
-        // component={route.main}/>
-        // ))}
-
     );
   }
 }
