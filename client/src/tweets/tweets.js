@@ -72,7 +72,7 @@ class Tweets extends Component {
               { !this.state.visible ? <button className="getTweets" onClick={ this.getTweets } type="submit"> Get Tweets </button> : null }
             </div>
             <div className="text-center"><br/>
-                <h4>Change display mode:</h4> { this.state.visible ? this.state.asc ? <button onClick={ this.ascending}> Ascending </button> : <button onClick={ this.descending }> Descending </button> :<h4> <p> click <b> Get Tweets </b> to sort </p> </h4> }
+                <h4>Change display mode:</h4> { this.state.visible ? this.state.asc ? <button className="ascButton" onClick={ this.ascending}> Ascending </button> : <button className="ascButton" onClick={ this.descending }> Descending </button> :<h4> <p> click <b> Get Tweets </b> to sort </p> </h4> }
             </div>
         </div>
 

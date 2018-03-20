@@ -43,7 +43,7 @@
   display: inline-flex;
   margin: 0 auto;
 }
-a {
+a{
   padding: 30px;
   cursor: pointer;
 }
@@ -62,4 +62,12 @@ li.active a{
 }
 .tweetButton{
   width: 100%
+}
+.ascButton{
+  border-radius: 5px;
+  width: 20%;
+  margin-bottom: 1%;
+}
+li:hover{
+  background-color: black
 }
