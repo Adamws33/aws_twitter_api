@@ -6,7 +6,7 @@ import {
   BrowserRouter as Router,
 } from 'react-router-dom';
 
-
+//main file for all of the other components to render through 
 class App extends Component {
 
   render() {
@@ -14,7 +14,6 @@ class App extends Component {
       <Router>
         <div>
           <SideBar/>       
-          {/* <SiteBar clickLogout={this.logout} loggedIn={this.state.sessionToken} /> */}
         </div>
       </Router>
     );

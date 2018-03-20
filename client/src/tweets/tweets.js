@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "./tweets.css"
 import { TablePagination } from 'react-pagination-table';
-// import Splash from './home/Splash';
 
 class Tweets extends Component {
 
@@ -13,7 +12,7 @@ class Tweets extends Component {
       asc: true
     }
   }
-
+//will order tweets ascending and change the asc state to false displaying descending 
     ascending=() =>{
       this.setState({ 
         tweets: this.state.tweets.sort((a,b)=>{
@@ -22,17 +21,17 @@ class Tweets extends Component {
           return ( textA < textB ) ? -1 : ( textA > textB ) ? 1 : 0;
         }),
         asc: false
-      }, () => console.log("ascending", this.state.tweets))
+      })
     }
-
+//will order tweets descending and change the asc state to true displaying ascending 
     descending=() =>{
-      // this.setState({ tweets: this.state.tweets.sort()})
       this.setState({ 
         tweets: this.state.tweets.reverse(),
         asc: true
-      }, () => console.log("descending", this.state.tweets))
+      })
     }
 
+//call to server to make api request to get tweets
     getTweets=(e)=>{
       console.log("The tweets are here")
       fetch("http://localhost:4000/",{
@@ -57,6 +56,7 @@ class Tweets extends Component {
             { this.state.visible ? <h1 className="text-center"> Tweets for #goodDog </h1> : null }
             <br/><br/>
           </div>
+{/* information from the GET displaying on the screen */}
           { this.state.visible?
           <TablePagination className="text-center"
             title=""
@@ -68,11 +68,13 @@ class Tweets extends Component {
             totalCount={ 100 }
           />: null
           }
-            <div>
-              { !this.state.visible ? <button className="text-center" onClick={ this.getTweets } type="submit"> Get Tweets </button> : null }
+{/* displays a button to get tweets or a header depending on the value of state.visible */}
+            <div className="tweetButton">
+              { !this.state.visible ? <button className="getTweets" onClick={ this.getTweets } type="submit"> Get Tweets </button> : null }
             </div>
+{/* displays ascending or descending based on the value of stare.asc */}
             <div className="text-center"><br/>
-                <h4>Change display Mode:</h4> { this.state.visible ? this.state.asc ? <button onClick={ this.ascending}> Ascending </button> : <button onClick={ this.descending }> Descending </button> :<h4> <p> click <b> Get Tweets </b> to sort </p> </h4> }
+                <h4>Change display mode:</h4> { this.state.visible ? this.state.asc ? <button className="ascButton" onClick={ this.ascending}> Ascending </button> : <button className="ascButton" onClick={ this.descending }> Descending </button> :<h4> <p> click <b> Get Tweets </b> to sort </p> </h4> }
             </div>
         </div>
 
