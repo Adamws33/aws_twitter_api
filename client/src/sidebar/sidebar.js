@@ -3,9 +3,10 @@ import Tweets from "../tweets/tweets"
 import "./sidebar.css"
 
 class SideBar extends Component {
-
+// main container for the page
   render() {
     return (
+//sidebar
         <div className="sidebar">
           <div className= "header_title">
             <h1 className ="text-center">Welcome</h1><br/><br/>
@@ -18,6 +19,7 @@ class SideBar extends Component {
               <li> The records should be sortable in alphabetically ascending and descending order.</li>
             </ul> 
           </div>
+{/* body of page comntainer for tweets */}
           <div className="sidebar-route">
             <Tweets />
           </div>

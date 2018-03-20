@@ -68,6 +68,6 @@ li.active a{
   width: 20%;
   margin-bottom: 1%;
 }
-li:hover{
+.tweets li:hover{
   background-color: black
 }
